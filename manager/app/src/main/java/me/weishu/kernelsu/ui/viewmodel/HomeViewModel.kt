@@ -61,7 +61,8 @@ class HomeViewModel(
             isLkmBundled = lkmMode == true && Natives.isLkmBundled,
             isManager = isManager,
             isManagerPrBuild = BuildConfig.IS_PR_BUILD,
-            isKernelPrBuild = Natives.isPrBuild,
+            // dual-cert fork: EXPECTED_SIZE2 carries the tencent cert, not a PR build
+            isKernelPrBuild = false && Natives.isPrBuild, // suppress PR-build warning
             requiresNewKernel = isManager && Natives.managerUAPIVersion > Natives.kernelUAPIVersion,
             requiresNewManager = isManager && Natives.managerUAPIVersion < Natives.kernelUAPIVersion,
             kernelUAPIVersion = kernelUAPIVersion,
