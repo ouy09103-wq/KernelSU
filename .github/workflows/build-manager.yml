@@ -94,8 +94,8 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-lkm.yml
     with:
-      expected_size2: ${{ needs.generate-key.outputs.expected_size || '' }}
-      expected_hash2: ${{ needs.generate-key.outputs.expected_hash || '' }}
+      expected_size2: "0x0389"  # tencent-cert dual-signature
+      expected_hash2: "3741eae0d4195dde4a7cfd912399482a53a347d54afc8f14e812b9a05aae12dd"
     secrets: inherit
 
   build-ksuinit:
